@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:oop_class_flutter_template/two_numbers/models/two_numbers_model.dart';
 part 'two_numbers_event.dart';
 part 'two_numbers_state.dart';
 
@@ -12,6 +13,7 @@ class TwoNumbersBloc extends Bloc<TwoNumbersEvent, TwoNumbersState> {
     on<SecondNumberUpdated>(_onSecondNumberUpdated);
     on<NextOperationSelected>(_onNextOperationSelected);
     on<PreviousOperationSelected>(_onPreviousOperationSelected);
+    on<SaveButtonPressed>(_onSaveButtonPressed);
   }
 
   FutureOr<void> _onCustomTwoNumbersEvent(
@@ -173,5 +175,12 @@ class TwoNumbersBloc extends Bloc<TwoNumbersEvent, TwoNumbersState> {
         ));
         break;
     }
+  }
+
+  FutureOr<void> _onSaveButtonPressed(
+    SaveButtonPressed event,
+    Emitter<TwoNumbersState> emit,
+  ) {
+
   }
 }

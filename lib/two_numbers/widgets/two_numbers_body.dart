@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:oop_class_flutter_template/two_numbers/bloc/bloc.dart';
+import 'package:oop_class_flutter_template/two_numbers/models/two_numbers_model.dart';
 
 /// {@template two_numbers_body}
 /// Body of the TwoNumbersPage.
@@ -88,6 +89,13 @@ class TwoNumbersBody extends StatelessWidget {
                                 const NextOperationSelected(),
                               ),
                           icon: const Icon(Icons.chevron_right),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: const Text("Salvar"),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                          ),
                         ),
                       ],
                     )

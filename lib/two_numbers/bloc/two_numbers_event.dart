@@ -46,3 +46,10 @@ class PreviousOperationSelected extends TwoNumbersEvent {
   @override
   List<Object> get props => [];
 }
+
+class SaveButtonPressed extends TwoNumbersEvent {
+  const SaveButtonPressed();
+
+  @override
+  List<Object> get props => [];
+}

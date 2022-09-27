@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oop_class_flutter_template/two_numbers/bloc/bloc.dart';
+import 'package:oop_class_flutter_template/two_numbers/models/two_numbers_model.dart';
 import 'package:oop_class_flutter_template/two_numbers/widgets/two_numbers_body.dart';
 
 /// {@template two_numbers_page}

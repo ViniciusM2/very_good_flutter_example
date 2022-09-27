@@ -1,6 +1,6 @@
 part of 'two_numbers_bloc.dart';
 
-enum Operation { none, add, subtract, multiply, divide }
+
 
 /// {@template two_numbers_state}
 /// TwoNumbersState description
