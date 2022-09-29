@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oop_class_flutter_template/two_numbers/bloc/bloc.dart';
 import 'package:oop_class_flutter_template/two_numbers/models/two_numbers_model.dart';
+import 'package:oop_class_flutter_template/two_numbers/view/two_numbers_history_page.dart';
 import 'package:oop_class_flutter_template/two_numbers/widgets/two_numbers_body.dart';
 
 /// {@template two_numbers_page}
@@ -24,6 +25,19 @@ class TwoNumbersPage extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: _operationToColor(state.operation),
+              actions: [
+                // Historic button
+                IconButton(
+                  icon: const Icon(Icons.history),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => TwoNumbersHistoricPage(),
+                      ),
+                    );
+                  },
+                ),
+              ],
               elevation: 0,
               title: Text(
                 state.operation.toString(),

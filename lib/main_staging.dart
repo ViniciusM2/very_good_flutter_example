@@ -8,6 +8,12 @@
 import 'package:oop_class_flutter_template/app/app.dart';
 import 'package:oop_class_flutter_template/bootstrap.dart';
 
-void main() {
-  bootstrap(() => const App());
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await bootstrap(() => const App());
 }

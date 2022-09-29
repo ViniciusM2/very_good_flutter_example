@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "520898090513",
+    "project_id": "merlin-a65b2",
+    "storage_bucket": "merlin-a65b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520898090513:android:3d143d45e9dcf7082cc3b0",
+        "android_client_info": {
+          "package_name": "com.example.verygoodcore.oop_class_flutter_template"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520898090513-7i07geho7fnkj0bd23se7f0k47t324t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ3groGMR0OltNEYpGWbLmme50GjkRpEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520898090513-7i07geho7fnkj0bd23se7f0k47t324t3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

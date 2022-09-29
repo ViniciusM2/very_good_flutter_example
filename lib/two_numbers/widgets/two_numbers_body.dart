@@ -91,11 +91,15 @@ class TwoNumbersBody extends StatelessWidget {
                           icon: const Icon(Icons.chevron_right),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Salvar"),
+                          onPressed: () {
+                            context.read<TwoNumbersBloc>().add(
+                                  const SaveButtonPressed(),
+                                );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                           ),
+                          child: const Text('Salvar'),
                         ),
                       ],
                     )

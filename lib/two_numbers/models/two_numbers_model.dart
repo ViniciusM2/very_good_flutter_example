@@ -1,6 +1,14 @@
 enum Operation { none, add, subtract, multiply, divide }
 
 class TwoNumbersModel {
+
+  TwoNumbersModel({
+    required this.firstNumber,
+    required this.secondNumber,
+    required this.operation,
+    required this.result,
+  });
+
   TwoNumbersModel.fromMap(Map<String, dynamic> map)
       : firstNumber = map['firstNumber'] as num,
         secondNumber = map['secondNumber'] as num,

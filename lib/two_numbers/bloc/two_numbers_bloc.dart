@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:oop_class_flutter_template/two_numbers/models/two_numbers_model.dart';
+import 'package:oop_class_flutter_template/two_numbers/repository/two_numbers_repository.dart';
 part 'two_numbers_event.dart';
 part 'two_numbers_state.dart';
 
@@ -180,7 +181,14 @@ class TwoNumbersBloc extends Bloc<TwoNumbersEvent, TwoNumbersState> {
   FutureOr<void> _onSaveButtonPressed(
     SaveButtonPressed event,
     Emitter<TwoNumbersState> emit,
-  ) {
-
+  ) async {
+    await TwoNumbersRepository().save(
+      TwoNumbersModel(
+        firstNumber: state.firstNumber,
+        secondNumber: state.secondNumber,
+        operation: state.operation,
+        result: state.result,
+      ),
+    );
   }
 }
