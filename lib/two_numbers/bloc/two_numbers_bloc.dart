@@ -8,7 +8,9 @@ part 'two_numbers_event.dart';
 part 'two_numbers_state.dart';
 
 class TwoNumbersBloc extends Bloc<TwoNumbersEvent, TwoNumbersState> {
-  TwoNumbersBloc() : super(const TwoNumbersInitial()) {
+  TwoNumbersBloc({
+    required this.repository,
+  }) : super(const TwoNumbersInitial()) {
     on<CustomTwoNumbersEvent>(_onCustomTwoNumbersEvent);
     on<FirstNumberUpdated>(_onFirstNumberUpdated);
     on<SecondNumberUpdated>(_onSecondNumberUpdated);
@@ -16,6 +18,8 @@ class TwoNumbersBloc extends Bloc<TwoNumbersEvent, TwoNumbersState> {
     on<PreviousOperationSelected>(_onPreviousOperationSelected);
     on<SaveButtonPressed>(_onSaveButtonPressed);
   }
+
+  final TwoNumbersRepository repository;
 
   FutureOr<void> _onCustomTwoNumbersEvent(
     CustomTwoNumbersEvent event,
@@ -182,7 +186,7 @@ class TwoNumbersBloc extends Bloc<TwoNumbersEvent, TwoNumbersState> {
     SaveButtonPressed event,
     Emitter<TwoNumbersState> emit,
   ) async {
-    await TwoNumbersRepository().save(
+    await repository.save(
       TwoNumbersModel(
         firstNumber: state.firstNumber,
         secondNumber: state.secondNumber,

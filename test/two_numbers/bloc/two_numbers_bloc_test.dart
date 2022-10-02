@@ -3,6 +3,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:oop_class_flutter_template/two_numbers/bloc/bloc.dart';
+import 'package:oop_class_flutter_template/two_numbers/models/two_numbers_model.dart';
 
 void main() {
   group('TwoNumbersBloc', () {

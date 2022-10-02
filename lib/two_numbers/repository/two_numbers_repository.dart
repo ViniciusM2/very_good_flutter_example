@@ -11,12 +11,4 @@ class TwoNumbersRepository {
           model.toMap(),
         );
   }
-
-  Future<List<TwoNumbersModel>> loadAll() async {
-    final querySnapshot =
-        await FirebaseFirestore.instance.collection('two_numbers').get();
-    return querySnapshot.docs
-        .map((doc) => TwoNumbersModel.fromMap(doc.data()))
-        .toList();
-  }
 }

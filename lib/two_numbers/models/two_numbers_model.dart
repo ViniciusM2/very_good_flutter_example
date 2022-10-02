@@ -1,7 +1,6 @@
 enum Operation { none, add, subtract, multiply, divide }
 
 class TwoNumbersModel {
-
   TwoNumbersModel({
     required this.firstNumber,
     required this.secondNumber,
@@ -27,6 +26,11 @@ class TwoNumbersModel {
       'operation': _operationToString(operation),
       'result': result,
     };
+  }
+
+  @override
+  String toString() {
+    return 'TwoNumbersModel{firstNumber: $firstNumber, secondNumber: $secondNumber, operation: $operation, result: $result}';
   }
 }
 

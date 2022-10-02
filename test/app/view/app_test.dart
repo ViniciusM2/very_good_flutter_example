@@ -7,13 +7,13 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:oop_class_flutter_template/app/app.dart';
-import 'package:oop_class_flutter_template/counter/counter.dart';
+import 'package:oop_class_flutter_template/two_numbers/two_numbers.dart';
 
 void main() {
   group('App', () {
-    testWidgets('renders CounterPage', (tester) async {
+    testWidgets('renders TwoNumbersPage', (tester) async {
       await tester.pumpWidget(const App());
-      expect(find.byType(CounterPage), findsOneWidget);
+      expect(find.byType(TwoNumbersPage), findsOneWidget);
     });
   });
 }

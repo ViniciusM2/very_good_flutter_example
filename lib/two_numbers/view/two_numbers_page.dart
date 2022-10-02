@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:oop_class_flutter_template/history/view/history_page.dart';
 import 'package:oop_class_flutter_template/two_numbers/bloc/bloc.dart';
 import 'package:oop_class_flutter_template/two_numbers/models/two_numbers_model.dart';
-import 'package:oop_class_flutter_template/two_numbers/view/two_numbers_history_page.dart';
+import 'package:oop_class_flutter_template/two_numbers/repository/two_numbers_repository.dart';
 import 'package:oop_class_flutter_template/two_numbers/widgets/two_numbers_body.dart';
 
 /// {@template two_numbers_page}
@@ -18,37 +19,13 @@ class TwoNumbersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TwoNumbersBloc(),
-      child: BlocBuilder<TwoNumbersBloc, TwoNumbersState>(
-        builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              backgroundColor: _operationToColor(state.operation),
-              actions: [
-                // Historic button
-                IconButton(
-                  icon: const Icon(Icons.history),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => TwoNumbersHistoricPage(),
-                      ),
-                    );
-                  },
-                ),
-              ],
-              elevation: 0,
-              title: Text(
-                state.operation.toString(),
-              ),
-            ),
-            backgroundColor: _operationToColor(
-              state.operation,
-            ),
-            body: const TwoNumbersBody(),
-          );
-        },
+    return RepositoryProvider(
+      create: (context) => TwoNumbersRepository(),
+      child: BlocProvider(
+        create: (context) => TwoNumbersBloc(
+          repository: RepositoryProvider.of<TwoNumbersRepository>(context),
+        ),
+        child: const TwoNumbersView(),
       ),
     );
   }
@@ -59,11 +36,38 @@ class TwoNumbersPage extends StatelessWidget {
 /// {@endtemplate}
 class TwoNumbersView extends StatelessWidget {
   /// {@macro two_numbers_view}
-  const TwoNumbersView({Key? key}) : super(key: key);
+  const TwoNumbersView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const TwoNumbersBody();
+    return BlocBuilder<TwoNumbersBloc, TwoNumbersState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: _operationToColor(state.operation),
+            actions: [
+              // Historic button
+              IconButton(
+                icon: const Icon(Icons.history),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    HistoryPage.route(),
+                  );
+                },
+              ),
+            ],
+            elevation: 0,
+            title: Text(
+              state.operation.toString(),
+            ),
+          ),
+          backgroundColor: _operationToColor(
+            state.operation,
+          ),
+          body: const TwoNumbersBody(),
+        );
+      },
+    );
   }
 }
 
